@@ -1,0 +1,445 @@
+﻿
+<!-- Begin of FADMAA Lite - Created by Catherine Mc Cauley July 2018-->
+
+<link rel="stylesheet" href="//core.secure.ehc.com/design/lib/framework/bs3/bootstrap.min.css" />
+<link rel="stylesheet" href="//core.secure.ehc.com/design/font/fontawesomer/css/fontawesomer.css" />
+
+<script>
+    function show_selected() {
+        document.getElementById('showTags').innerHTML = '';
+        var selector = document.getElementById('custom_specialityid');
+        var category = selector[selector.selectedIndex].id;
+
+        var demop = document.getElementById("showTags");
+        var item = document.getElementsByClassName(category);
+        var showTags = '';
+        var array;
+
+        if (category == 'Bone') {
+            array = document.getElementsByClassName('Bone');
+        }
+        if (category == 'Cancer') {
+            array = document.getElementsByClassName('Cancer');
+        }
+        if (category == 'Cardiovascular') {
+            array = document.getElementsByClassName('Cardiovascular');
+        }
+        if (category == 'Cosmetic') {
+            array = document.getElementsByClassName('Cosmetic');
+        }
+        if (category == 'Degenerative') {
+            array = document.getElementsByClassName('Degenerative');
+        }
+        if (category == 'Derma') {
+            array = document.getElementsByClassName('Derma');
+        }
+        if (category == 'Down') {
+            array = document.getElementsByClassName('Down');
+        }
+        if (category == 'ENT') {
+            array = document.getElementsByClassName('ENT');
+        }
+        if (category == 'FamilyPlanning') {
+            array = document.getElementsByClassName('FamilyPlanning');
+        }
+        if (category == 'Global') {
+            array = document.getElementsByClassName('Global');
+        }
+        if (category == 'Head') {
+            array = document.getElementsByClassName('Head');
+        }
+        if (category == 'Maternity') {
+            array = document.getElementsByClassName('Maternity');
+        }
+        if (category == 'Men') {
+            array = document.getElementsByClassName('Men');
+        }
+        if (category == 'MentalHealth') {
+            array = document.getElementsByClassName('MentalHealth');
+        }
+        if (category == 'Mobility') {
+            array = document.getElementsByClassName('Mobility');
+        }
+        if (category == 'Ortho') {
+            array = document.getElementsByClassName('Ortho');
+        }
+        if (category == 'Preventive') {
+            array = document.getElementsByClassName('Preventive');
+        }
+        if (category == 'Pulmonary') {
+            array = document.getElementsByClassName('Pulmonary');
+        }
+        if (category == 'Robotics') {
+            array = document.getElementsByClassName('Robotics');
+        }
+        if (category == 'Stomach') {
+            array = document.getElementsByClassName('Stomach');
+        }
+        if (category == 'Urology') {
+            array = document.getElementsByClassName('Urology');
+        }
+        if (category == 'Weight') {
+            array = document.getElementsByClassName('Weight');
+        }
+        if (category == 'Women') {
+            array = document.getElementsByClassName('Women');
+        }
+
+        if (category != '') {
+            for (var i = 0; i < array.length; i++) {
+                if (array[i].value == document.getElementById('custom_specialityid').value) {
+
+                } else {
+
+                    passValue = '"' + array[i].value + '"';
+                    showTags += "<a style='text-decoration-line:none;color:blue;cursor:pointer;border:1px solid black;padding:1px 3px 1px 3px;' onclick='switchKeyword(" + passValue + ");'>" + array[i].value + "</a> ";
+                }
+            }
+            document.getElementById('showTags').innerHTML = "Searchable Related Keywords: " + showTags;
+            array = '';
+        }
+    }
+
+    function switchKeyword(newKeyword) {
+        var newKeyword;
+        var oldKeyword;
+
+        oldKeyword = document.getElementById('custom_specialityid').value;
+
+        document.getElementById('custom_specialityid_hidden').value = newKeyword;
+        document.getElementById('custom_specialityid').value = newKeyword;
+
+        var str = document.getElementById('showTags').innerHTML;
+
+        if (str.indexOf(oldKeyword) == -1) {
+            passValue = '"' + oldKeyword + '"';
+            document.getElementById('showTags').innerHTML = document.getElementById('showTags').innerHTML + "<a style='text-decoration-line:none;color:blue;cursor:pointer;border:1px solid black;padding:1px 3px 1px 3px;' onclick='switchKeyword(" + passValue + ");'>" + oldKeyword + "</a> ";
+        }
+    }
+
+</script>
+
+<div class="row col-sm-12 col-md-12 text-center" >
+    <div class="col-xs-0 col-sm-0 col-md-1"></div>
+    <div class="text-center col-md-10 col-xs-12">
+            <div id="Section3" >
+                <section class="text-center">
+                    <h3 style="color: #AF0D26;">Find A Doctor - Quick Search</h3>
+                    <p class="text-left">Physician search using Keyword and/or Zip Code with Distance (in miles).</p>
+                    <p style="text-align:left;">Keyword:<br />
+                        <select id="custom_specialityid" style="text-align:left; background-color: antiquewhite;width: 98%;padding: 4px 7px 8px 4px;" onchange="if (this.selectedIndex) show_selected();">
+                            <optgroup label="Procedures and Conditions">
+                                <option id="" class="Custom" value="-1" selected>Select from list</option>
+                                <option id="ENT" class="ENT" value="Allergy">Allergy</option>
+                                <option id="Ortho" class="Ortho" value="Ankle And Foot">Ankle And Foot Conditions</option>
+                                <option id="Bone" class="Bone" value="Arthritis">Arthritis</option>
+                                <option id="Ortho" class="Ortho" value="Back">Back Pain</option>
+                                <option id="Cancer" class="Cancer" value="Biopsy">Biopsy</option>
+                                <option id="MentalHealth" class="MentalHealth" value="Bipolar">Bipolar</option>
+                                <option id="Urology" class="Urology" value="Bladder">Bladder</option>
+                                <option id="Cosmetic" class="Cosmetic" value="Botox">Botox</option>
+                                <option id="Cancer" class="Cancer" value="Cancer">Cancer</option>
+                                <option id="Head" class="Head" value="Concussion">Concussion</option>
+                                <option id="Head" class="Head" value="Dizziness">Dizziness</option>
+                                <option id="ENT" class="ENT" value="Ear">Ear</option>
+                                <option id="Ortho" class="Ortho" value="Elbow">Elbow</option>
+                                <option id="" class="" value="Eye">Eye Care</option>
+                                <option id="" class="" value="Flu">Flu</option>
+                                <option id="Ortho" class="Ortho" value="Foot">Foot</option>
+                                <option id="Ortho" class="Ortho" value="Hand">Hand</option>
+                                <option id="Head" class="Head" value="Headache">Headaches</option>
+                                <option id="ENT" class="ENT" value="Hearing">Hearing</option>
+                                <option id="Cardiovascular" class="Cardiovascular" value="Heart">Heart</option>
+                                <option id="Down" class="Down" value="Hemorrhoid">Hemorrhoid</option>
+                                <option id="Stomach" class="Stomach" value="Hernia">Hernia</option>
+                                <option id="Ortho" class="Ortho" value="Hip">Hip</option>
+                                <option id="Cardiovascular" class="Cardiovascular" value="Hypertension">Hypertension</option>
+                                <option id="Women" class="Women" value="Hysterectomy">Hysterectomy</option>
+                                <option id="Urology" class="Urology" value="Incontinence">Incontinence</option>
+                                <option id="Global" class="Global" value="Infectious">Infectious Disease</option>
+                                <option id="FamilyPlanning" class="FamilyPlanning" value="Infertility">Infertility</option>
+                                <option id="Preventive" class="Preventive" value="Immunizations">Immunizations</option>
+                                <option id="Stomach" class="Stomach" value="IBS">Irritable Bowel Syndrome - IBS</option>
+                                <option id="Ortho" class="Ortho" value="Joint">Joints</option>
+                                <option id="Middle" class="" value="Kidney">Kidney</option>
+                                <option id="Ortho" class="Ortho" value="Knee">Knee</option>
+                                <option id="" class="" value="Laser">Laser</option>
+                                <option id="Middle" class="" value="Liver">Liver</option>
+                                <option id="Head" class="Head" value="Migraine">Migraine</option>
+                                <option id="Degenerative" class="Degenerative" value="Multiple Sclerosis">Multiple Sclerosis</option>
+                                <option id="Ortho" class="Ortho" value="Neck">Neck</option>
+                                <option id="Weight" class="Weight" value="Obesity">Obesity</option>
+                                <option id="Women" class="Women" value="OBGYN">OBGYN</option>
+                                <option id="" class="" value="Pediatric">Pediatrics</option>
+                                <option id="Preventive" class="Preventive" value="Physicals">Physical Exams</option>
+                                <option id="Cosmetic" class="Cosmetic" value="Plastic Surgery">Plastic Surgery</option>
+                                <option id="Maternity" class="Maternity" value="Pregnancy">Pregnancy</option>
+                                <option id="Urology" class="Urology" value="Prostate">Prostate</option>
+                                <option id="Ortho" class="Ortho" value="Robotic Surgery">Robotic-Assisted Surgery</option>
+                                <option id="Head" class="Head" value="Seizure">Seizures</option>
+                                <option id="Ortho" class="Ortho" value="Shoulder">Shoulder</option>
+                                <option id="ENT" class="ENT" value="Sinus">Sinus</option>
+                                <option id="" class="" value="Sleep Apnea">Sleep Apnea</option> 
+                                <option id="ENT" class="ENT" value="Snoring">Snoring</option>
+                                <option id="Ortho" class="Ortho" value="Spine">Spine Care</option>
+                                <option id="Ortho" class="Ortho" value="Sports">Sports Medicine</option>
+                                <option id="Stomach" class="Stomach" value="Stomach">Stomach</option>
+                                <option id="" class="" value="Trauma">Trauma</option>
+                                <option id="Stomach" class="Stomach" value="Ulcer">Ulcer</option>
+                                <option id="Women" class="Women" value="Women">Womens Health</option>
+                            </optgroup>
+                        </select>
+                    </p>
+                    <p id="showTags" class="text-left"></p>
+                    <p style="text-align:left;">Zip Code:<br />
+                        <input title="For wider results, extend out the Distance or remove the Zip Code"  style="text-align:left; background-color: antiquewhite;width: 98%;padding: 4px 3px 5px 4px;border:1px solid silver;box-shadow: inset 0px 0px 0px 0px red;" type="number" id="custom_zipcodeid" name="custom_zipcodeid" min="0" max="99999" inputmode="numeric" pattern="[0-9]*" title="Non-negative integral number" > 
+                    </p>
+                    <p style="text-align:left;">Distance:<br />
+                        <select id="custom_distanceid" style="text-align:left; background-color: antiquewhite;width: 98%;padding: 4px 3px 6px 4px;">
+                            <optgroup label="By Miles">
+                                <option id="CustomDistance5" value="5">5 miles</option>
+                                <option id="CustomDistance10" value="10"  selected>10 miles</option>
+                                <option id="CustomDistance20" value="20" >20 miles</option>
+                                <option id="CustomDistance30" value="30">30 miles</option>
+                                <option id="CustomDistance50" value="50">50 miles</option>
+                                <option id="CustomDistance100" value="100">100 miles</option>
+                                <option id="CustomDistance200" value="200">200 miles</option>
+                            </optgroup>
+                        </select>
+                    </p>
+                    <p style="text-align:center;padding-top:.5em;">
+                        <a  id="btnFindADoctor" onclick="customFindADoctor(event);" style="text-decoration-line:none;padding: 4px 3px 6px 4px;cursor:pointer;border:1px solid navy;padding-left:1em;background-color:navy;color:white;" title="Results may take several moments to collect information." >
+                            Find A Doctor
+                            <i aria-hidden="true" class="icon-user-md"></i>
+                        </a>
+                        <input type="hidden" id="custom_specialityid_hidden" name="custom_specialityid_hidden" value="" />
+                        <input type="hidden" id="custom_zipcodeid_hidden" name="custom_zipcodeid_hidden" value="" />
+                        <input type="hidden" id="custom_facilityid_hidden" name="custom_facilityid_hidden" value="" />
+                        <input type="hidden" id="custom_lastname_hidden" name="custom_lastname_hidden" value="" />
+                        <input type="hidden" id="custom_distanceid_hidden" name="custom_distanceid_hidden" value="" />
+                        <input type="hidden" id="custom_genderid_hidden" name="custom_genderid_hidden" value="" />
+                    </p>
+                    <p class="text-left">
+                        <span class="pull-right hidden-xs" onclick="clearSelections();" alt="Clear selections" style="cursor:pointer;" title="Clear selections">
+                            <i class="icon-arrows-cw " aria-label="Clear selections" style="color: #AF0D26;"></i>
+                            <span style="font:caption;">Clear</span> 
+                        </span>
+                            *Results are ranked by online scheduling availability.<br/>
+                            *If you or someone you know is experiencing a medical emergency call 911 first.
+                        <br class="visible xs" />
+                        <span class="text-center visible-xs" onclick="clearSelections();" alt="Clear selections" style="cursor:pointer;" title="Clear selections">
+                            <i class="icon-arrows-cw " aria-label="Clear selections" style="color: #AF0D26;"></i>
+                            <span style="font:caption;">Clear Selections</span> 
+                        </span>
+                    </p>
+                </section>
+            </div>
+        </div>
+    <div class="col-xs-0 col-sm-0 col-md-1"></div>
+</div>
+<div class="row">
+    <p class="text-center h5">Connecting you with physicians in Dallas-Fort Worth.</p>
+</div>
+
+<!-- End of FADMAA Lite-->
+
+<!-- Start of custom StatCounter Code-->
+<script type="text/javascript">
+    var clickFindADoctor = document.getElementById("btnFindADoctor");
+    var _statcounter = [];
+    var sc_project = 11834083;
+    var sc_invisible = 1;
+    var sc_security = "2fe8f3d3";
+    var sc_https = 1;
+    var sc_kw;
+    var sc_zip;
+    var sc_distance;
+
+    clickFindADoctor.addEventListener('click', function StatCounterExtra() {
+        sc_kw = document.getElementById("custom_specialityid").value;
+        sc_distance = document.getElementById("custom_distanceid").value;
+        sc_zip = document.getElementById("custom_zipcodeid").value;
+        if (document.getElementById("custom_specialityid").value == -1) {
+            sc_kw = "All Categories";
+        }
+        if (document.getElementById("custom_zipcodeid").value.length == 0) {
+            sc_zip = "No Zip";
+            sc_distance = "All";
+        }
+        _statcounter.push({ "tags": { "search": sc_kw + " - " + sc_zip + " - " + sc_distance + " miles" } });
+        var importScript = (function (oHead) {
+            return function (sSrc, fOnload) {
+                var oScript = document.createElement("script");
+                oScript.type = "text/javascript";
+                oHead.appendChild(oScript);
+                oScript.src = sSrc;
+            }
+        })(document.head || document.getElementsByTagName("head")[0]);
+        importScript('https://statcounter.com/counter/counter.js');
+    })
+</script>
+<!-- End of custom StatCounter Code-->
+
+<script type="text/javascript">
+    function clearSelections() {
+        document.getElementById('custom_specialityid_hidden').value = -1;
+        document.getElementById('custom_zipcodeid_hidden').value = '';
+        document.getElementById('custom_distanceid_hidden').value = 5;
+        document.getElementById('custom_specialityid').value = -1;
+        document.getElementById('custom_zipcodeid').value = '';
+        document.getElementById('custom_distanceid').value = 5;
+        document.getElementById('showTags').innerHTML = '';
+        document.getElementById('custom_specialityid').focus();
+    }
+
+    function lettersOnly(evt) {
+        evt = (evt) ? evt : event;
+        var CustomLastName = document.getElementById('custom_lastname').value;
+        var charCode = (evt.charCode) ? evt.charCode : ((evt.keyCode) ? evt.keyCode :
+            ((evt.which) ? evt.which : 0));
+        if (CustomLastName.length != 0) {
+
+            if (charCode == 222) {
+                return true;
+            } else {
+                if (charCode > 32 && (charCode < 65 || charCode > 90) && (charCode < 97 || charCode > 122)) {
+                    document.getElementById('custom_lastname').focus();
+                    document.getElementById('custom_lastname').select();
+                    return false;
+                }
+                return true;
+            }
+        }
+    }
+</script>
+
+<script type="text/javascript">
+    function customFindADoctor(e) {
+        var selector = document.getElementById('custom_specialityid');
+        var CustomSpeciality = selector[selector.selectedIndex].value;
+
+        var CustomZipCode = document.getElementById('custom_zipcodeid').value.slice(0, 5);
+        var CustomLastName = 0;
+
+        var selector2 = -1
+        var CustomFacilityID = -1
+
+        var selector3 = document.getElementById('custom_distanceid');
+        var CustomDistanceID = selector3[selector3.selectedIndex].value;
+
+        var selector4 = -1;
+        var CustomGenderID = -1;
+
+        document.getElementById('custom_specialityid_hidden').value = CustomSpeciality;
+        document.getElementById('custom_zipcodeid_hidden').value = CustomZipCode;
+        document.getElementById('custom_lastname_hidden').value = CustomLastName;
+        document.getElementById('custom_facilityid_hidden').value = CustomFacilityID;
+        document.getElementById('custom_distanceid_hidden').value = CustomDistanceID;
+        document.getElementById('custom_genderid_hidden').value = CustomGenderID;
+
+        var urlSpeciality;
+        var urlZipCode;
+        var urlFacility;
+        var finalURL;
+        var onlySpecialtySelected = 0;
+
+        if (CustomSpeciality == -1 && CustomZipCode.length == 0) {
+            alert('Please select a keyword or enter a zip code.');
+            document.getElementById('custom_specialityid').focus();
+            return false;
+        }
+        else {
+            var url = 'https://medicalcityalliance.com/physicians/';
+
+            if (CustomSpeciality == -1) {
+                if (CustomZipCode.length == 0 && CustomFacilityID == -1) {
+                    finalURL = url;
+                }
+                if (CustomZipCode.length == 5 && CustomFacilityID == -1) {
+                    urlZipCode = '?zip=' + CustomZipCode;
+                    finalURL = url + urlZipCode;
+                }
+            }
+
+            if (CustomSpeciality != -1) {
+                urlSpeciality = 'search/' + CustomSpeciality + '/1/?per_page=100';
+                if (CustomZipCode.length == 0 && CustomFacilityID == -1) {
+                    onlySpecialtySelected = 1;
+                    finalURL = url + urlSpeciality;
+                }
+                if (CustomZipCode.length == 5 && CustomFacilityID == - 1) {
+                    urlZipCode = '&zip=' + CustomZipCode;
+                    finalURL = url + urlSpeciality + urlZipCode;
+                }
+                if (CustomZipCode.length == 5 && CustomFacilityID != -1) {
+                    urlZipCode = '&zip=' + CustomZipCode;
+                    finalURL = url + urlSpeciality + urlZipCode + urlFacility;
+                }
+            }
+
+            if (CustomZipCode.length == 0) {
+                if (CustomSpeciality == -1 && CustomFacilityID == -1) {
+                    finalURL = url;
+                }
+                if (CustomSpeciality != -1 && CustomFacilityID == -1) {
+                    urlSpeciality = 'search/' + CustomSpeciality + '/1/?per_page=100';
+                    onlySpecialtySelected = 1;
+                    finalURL = url + urlSpeciality;
+                }
+            }
+
+            if (CustomZipCode.length == 5) {
+                if (CustomSpeciality == -1 && CustomFacilityID == -1) {
+                    urlZipCode = '?zip=' + CustomZipCode + '&distance=' + CustomDistanceID;
+                    finalURL = url + urlZipCode;
+                }
+                if (CustomSpeciality != -1 && CustomFacilityID == -1) {
+                    urlSpeciality = 'search/' + CustomSpeciality + '/1/?per_page=100';
+                    urlZipCode = '&zip=' + CustomZipCode + '&distance=' + CustomDistanceID;
+                    finalURL = url + urlSpeciality + urlZipCode;
+                }
+            }
+
+            var params = 'fullscreen=no,titlebar=yes,toolbar=1,menubar=1,width=1000,height=700,left=500';
+
+            window.open(finalURL, 'FindADoctor_Custom', 'fullscreen=no,titlebar=yes,toolbar=1,menubar=1,width=1000,height=700,left=500');
+        }
+    }
+</script>
+
+<style type="text/css">
+    .btnFind {
+        background-image: linear-gradient(-45deg, DarkBlue,Navy 92%, Green);
+        color: white;
+    }
+        .btnFind:hover {
+            background-image: linear-gradient(-45deg, Green, DarkBlue 92%, DarkBlue);
+            color: cornsilk
+        }
+    .searchHeader {
+        color: DarkBlue;
+        font-family: 'Poppins';
+    }
+
+    .searchFieldBackground {
+        background-color: antiquewhite;
+    }
+</style>
+
+<style type="text/css">
+    .FAD {
+        background-color: antiquewhite;
+        width: 80%;
+    }
+   @media screen and (min-width: 980px) /* Desktop */ {
+        .FAD {
+            background-color: antiquewhite;
+            width: 80%;
+        }
+    }
+    @media screen and (max-width: 500px) /* Mobile */ {
+        .FAD {
+            width: 100%;
+        }
+    }
+</style> 
